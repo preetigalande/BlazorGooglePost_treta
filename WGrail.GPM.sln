@@ -32,6 +32,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wrail.GPM.Locations", "Wrai
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wrail.GPM.Locations.Service", "Wrail.GPM.Locations.Service\Wrail.GPM.Locations.Service.csproj", "{CC5826A1-7237-4252-93F9-8BA9D440B81E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DatabaseChanges", "DatabaseChanges", "{7D8DA44A-C8D5-47D6-B282-5E181F299DE6}"
+	ProjectSection(SolutionItems) = preProject
+		StoredProcedures.txt = StoredProcedures.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
