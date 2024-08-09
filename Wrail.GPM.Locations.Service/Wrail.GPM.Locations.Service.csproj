@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Wrail.GPM.Acccounts\Wrail.GPM.Acccounts.csproj" />
+    <ProjectReference Include="..\Wrail.GPM.Accounts.DTO\Wrail.GPM.Accounts.DTO.csproj" />
+    <ProjectReference Include="..\Wrail.GPM.Accounts.Service\Wrail.GPM.Accounts.Service.csproj" />
+    <ProjectReference Include="..\Wrail.GPM.Database.SQLServer.Service\Wrail.GPM.Database.SQLServer.Service.csproj" />
+    <ProjectReference Include="..\Wrail.GPM.Locations\Wrail.GPM.Locations.csproj" />
+    <ProjectReference Include="..\Wrail.GPM.Return\Wrail.GPM.Return.csproj" />
+    <ProjectReference Include="..\Wrail.GPM.Status\Wrail.GPM.Status.csproj" />
+  </ItemGroup>
+
+</Project>

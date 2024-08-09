@@ -1,0 +1,10 @@
+﻿@page "/"
+@namespace WGrail.GPM.Pages
+@using WGrail.GPM.FE.Blazor
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "_Layout";
+}
+
+<component type="typeof(App)" render-mode="ServerPrerendered" />

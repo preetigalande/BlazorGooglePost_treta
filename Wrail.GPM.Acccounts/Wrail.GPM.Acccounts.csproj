@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Azure.Identity" Version="1.12.0" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Wrail.GPM.Accounts.DTO\Wrail.GPM.Accounts.DTO.csproj" />
+    <ProjectReference Include="..\Wrail.GPM.Accounts.Service\Wrail.GPM.Accounts.Service.csproj" />
+    <ProjectReference Include="..\Wrail.GPM.Database.SQLServer.Service\Wrail.GPM.Database.SQLServer.Service.csproj" />
+    <ProjectReference Include="..\Wrail.GPM.Return\Wrail.GPM.Return.csproj" />
+    <ProjectReference Include="..\Wrail.GPM.Status\Wrail.GPM.Status.csproj" />
+  </ItemGroup>
+
+</Project>

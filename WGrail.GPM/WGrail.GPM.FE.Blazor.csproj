@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="log4net" Version="2.0.17" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Log4Net.AspNetCore" Version="8.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Wrail.GPM.Acccounts\Wrail.GPM.Acccounts.csproj" />
+    <ProjectReference Include="..\Wrail.GPM.Accounts.DTO\Wrail.GPM.Accounts.DTO.csproj" />
+    <ProjectReference Include="..\Wrail.GPM.Accounts.Service\Wrail.GPM.Accounts.Service.csproj" />
+    <ProjectReference Include="..\Wrail.GPM.Database.SQLServer.Service\Wrail.GPM.Database.SQLServer.Service.csproj" />
+    <ProjectReference Include="..\Wrail.GPM.Return\Wrail.GPM.Return.csproj" />
+    <ProjectReference Include="..\Wrail.GPM.Status\Wrail.GPM.Status.csproj" />
+  </ItemGroup>
+
+</Project>

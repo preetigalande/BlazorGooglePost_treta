@@ -1,0 +1,85 @@
+﻿@page "/accountcollections"
+@inject ILogger<AccountCollections> Logger
+@inject Wrail.GPM.Accounts.Service.ICollection CollectionService
+
+<h3>Accounts</h3>
+
+@if (errorMessage != null)
+{
+    <div class="alert alert-danger">@errorMessage</div>
+}
+else if (infoMessage != null)
+{
+    <div class="alert alert-info">@infoMessage</div>
+}
+@if (Collection != null)
+{
+    <p>@Collection.TotalAcounts accounts found.</p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Account</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Collection.Accounts.Count; i++)
+            {
+                <tr>
+                    <td>@(i + 1)</td> 
+                    <td>@Collection.Accounts[i].Email</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Loading...</p>
+}
+
+@code {
+    private Wrail.GPM.Accounts.DTO.Collection Collection { get; set; } = new Wrail.GPM.Accounts.DTO.Collection();
+    Wrail.GPM.FE.Blazor.Pages.Accounts.GetAccounCollections.Accounts model = new Wrail.GPM.FE.Blazor.Pages.Accounts.GetAccounCollections.Accounts();
+    private string errorMessage;
+    private string infoMessage;
+    private readonly string defaultErrorMessage = "An unexpected error occurred. Please try again.\r\nIf the error persists please contact Wrail.";
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            var result = await CollectionService.GetCollectionAsync();
+            // Wrail.GPM.FE.Blazor.Pages.Accounts.GetAccounCollections.Accounts model = new Wrail.GPM.FE.Blazor.Pages.Accounts.GetAccounCollections.Accounts();
+            switch (result.StatusCode)
+            {
+                case 200:
+                    Collection = result.Content;
+                    break;
+
+                case 404:
+                    model.SetInfoMessage(
+                        string.IsNullOrWhiteSpace(result.Message)
+                        ? "No accounts found. \r\nPlease click on the Create Account button to create an account."
+                        : result.Message + "\r\nPlease click on the Create Account button to create an account"
+                    );
+                    break;
+
+                default:
+                    model.SetErrorMessage(
+                        string.IsNullOrWhiteSpace(result.Message)
+                        ? defaultErrorMessage
+                        : result.Message
+                    );
+                    Logger.LogError("Error occurred while fetching collection: {Error}", result.Message);
+                    break;
+            }
+        }
+        catch (Exception ex)
+        {
+            errorMessage = defaultErrorMessage;
+            Logger.LogError(ex, "Exception occurred while fetching collection");
+        }
+    }
+}
