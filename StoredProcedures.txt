@@ -1,0 +1,21 @@
+CREATE PROCEDURE dbo.GetAccounts
+    @status dbo.Status READONLY
+AS
+BEGIN
+    SELECT 
+        Id,
+        AccountId,
+        ClientName,
+        Email
+    FROM 
+     dbo.[GPM.Account]
+    WHERE
+        Status IN (SELECT Status FROM @status);
+END
+
+INSERT INTO dbo.[GPM.Account] (Id, AccountId, ClientName, Email,Password, Status)
+VALUES
+    (1, 'A123', 'John Doe', 'john.doe@example.com','csd', 1),
+    (2, 'A124', 'Jane Smith', 'jane.smith@example.com','csd',1),
+    (3, 'A125', 'Alice Johnson', 'alice.johnson@example.com','csd', 1),
+    (4, 'A126', 'Bob Brown', 'bob.brown@example.com','csd', 1);
